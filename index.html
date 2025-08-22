@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One8 Sports - Welcome</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        #login-page {
+            height: 100vh;
+            width: 100%;
+            color: #fff;
+            background-image:url(https://wallpaperaccess.com/full/1133913.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-form {
+            background-color: rgba(10, 20, 30, 0.85);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+        }
+
+        #login-page h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #00aaff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .welcome-text {
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #ddd;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #444;
+            border-radius: 6px;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #00aaff;
+            box-shadow: 0 0 10px rgba(0, 170, 255, 0.5);
+        }
+
+        .login-form button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 6px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .login-form button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .extra-options {
+            margin-top: 25px;
+        }
+
+        .extra-options a {
+            color: #00aaff;
+            text-decoration: none;
+        }
+
+        .extra-options a:hover {
+            text-decoration: underline;
+        }
+
+        .signup-link {
+            margin-top: 15px;
+            color: #ccc;
+        }
+
+        #shop-page {
+            display: none;
+            color: #212529;
+        }
+        
+        #payment-page {
+            display: none;
+        }
+
+        .hero {
+            background: url('https://img.indiaforums.com/article/1280x720/22/3172-virat-kohli-faces-legal-heat-as-activist-seeks-fir-over-stampede-at-rcb-victory-event.jpg?c=8nLB98') no-repeat center center;
+            background-size: cover;
+            height: 90vh;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .product-card img {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .cart-icon {
+            position: relative;
+            display: inline-block;
+        }
+
+        #cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #E44D26;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        #cart-section h2,
+        #products-section h2 {
+            color: #343a40;
+            margin-bottom: 25px;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        #cart-section {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #cart-items {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        #cart-items li {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 10px 15px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #cart-total {
+            font-weight: bold;
+            font-size: 1.5em;
+            color: #333;
+            text-align: right;
+            margin-top: 20px;
+        }
+
+      
+        .payment-details {
+            display: none; 
+        }
+        .payment-details.active {
+            display: block;
+        }
+       #payment-page{   
+        background-image: url(https://wallpaperaccess.com/full/19609.jpg)  no-repeat center center fixed;
+        background-size: cover;
+        position: relative;
+        min-height: 100vh;
+        
+       }
+
+       
+        
+    </style>
+</head>
+
+<body>
+
+    <div id="login-page">
+        <div class="login-form">
+            <h1>ONE 8</h1>
+            <p class="welcome-text">Login to access your account</p>
+            <form id="login-form-element">
+                <div class="input-group">
+                    <label for="username">Username or Email</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit">LOGIN</button>
+            </form>
+            <div class="extra-options">
+                <a href="#" class="forgot-password">Forgot Password?</a>
+                <p class="signup-link">Don't have an account? <a href="#">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="shop-page">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">One8</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav align-items-center">
+                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#products-section">Shop</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#cart-section">
+                                <div class="cart-icon">
+                                    <i class="fas fa-shopping-cart fa-lg"></i>
+                                    <span id="cart-count">0</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <div class="container">
+                <h1>Unleash the Athlete Within</h1>
+                <p class="lead">Performance Meets Style – One8 by Virat Kohli</p>
+                <a href="#products-section" class="btn btn-light mt-3">Shop Now</a>
+            </div>
+        </section>
+
+        <section class="py-5" id="products-section">
+            <div class="container">
+                <h2 class="text-center mb-4">Featured Products</h2>
+                <div class="row g-4">
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <div class="card product-card h-100"><img
+                                src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/399844/02/sv01/fnd/IND/fmt/png/Court-Shatter-Low-Sneakers"
+                                class="card-img-top" alt="Running Shoes">
+                            <div class="card-body text-center d-flex flex-column">
+                                <h5 class="card-title">Running Shoes</h5>
+                                <p class="card-text">₹3,999</p><button class="btn btn-dark add-to-cart-btn mt-auto"
+                                    data-product-name="Running Shoes" data-product-price="3999">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <div class="card product-card h-100"><img
+                                src="https://m.media-amazon.com/images/I/51PBmhMdGoL.jpg" class="card-img-top"
+                                alt="Sporty T-Shirt">
+                            <div class="card-body text-center d-flex flex-column">
+                                <h5 class="card-title">Sporty T-Shirt</h5>
+                                <p class="card-text">₹1,499,99</p><button class="btn btn-dark add-to-cart-btn mt-auto"
+                                    data-product-name="Sporty T-Shirt" data-product-price="1499">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <div class="card product-card h-100"><img
+                                src="https://cdnb.lystit.com/photos/hm/9d12cb9d/hm-Light-beige-Relaxed-Fit-Linen-blend-Pants.jpeg"
+                                class="card-img-top" alt="Athletic Joggers">
+                            <div class="card-body text-center d-flex flex-column">
+                                <h5 class="card-title">Athletic Joggers</h5>
+                                <p class="card-text">₹2,499</p><button class="btn btn-dark add-to-cart-btn mt-auto"
+                                    data-product-name="Athletic Joggers" data-product-price="2499">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <div class="card product-card h-100"><img
+                                src="https://image.hm.com/assets/hm/60/46/6046444722aee90aafedb9c2b7ef666fb9730732.jpg?imwidth=1260"
+                                class="card-img-top" alt="Shirt">
+                            <div class="card-body text-center d-flex flex-column">
+                                <h5 class="card-title">Shirt</h5>
+                                <p class="card-text">₹1,999</p><button class="btn btn-dark add-to-cart-btn mt-auto"
+                                    data-product-name="Shirt" data-product-price="1999">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <div class="card product-card h-100"><img
+                                src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/076084/01/fnd/IND/fmt/png/PUMA-x-Virat-Kohli-Core-Backpack"
+                                class="card-img-top" alt="Backpack">
+                            <div class="card-body text-center d-flex flex-column">
+                                <h5 class="card-title">Backpack</h5>
+                                <p class="card-text">₹1,499</p><button class="btn btn-dark add-to-cart-btn mt-auto"
+                                    data-product-name="Backpack" data-product-price="1499">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <div class="card product-card h-100"><img
+                                src="https://www.mrcrickethockey.com/wp-content/uploads/2019/02/MRF-Genius-Grand-Cricket-Bat.jpg"
+                                class="card-img-top" alt="Cricket Bat">
+                            <div class="card-body text-center d-flex flex-column">
+                                <h5 class="card-title">Cricket Bat</h5>
+                                <p class="card-text">₹12,49,999</p><button class="btn btn-dark add-to-cart-btn mt-auto"
+                                    data-product-name="Cricket Bat" data-product-price="12499">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <div class="card product-card h-100">
+                            <img src="https://m.media-amazon.com/images/I/81DvizPqOjL.jpg" class="card-img-top"
+                                alt="Product 1">
+                            <div class="card-body text-center d-flex flex-column">
+                                <h5 class="card-title">Cricket Kit</h5>
+                                <p class="card-text">₹10,999</p>
+                                <button class="btn btn-dark add-to-cart-btn mt-auto" data-product-name="Cricket Kit"
+                                    data-product-price="10999">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <div class="card product-card h-100">
+                            <img src="https://image.hm.com/assets/hm/8e/57/8e571c59a95287132b55cfad0c3cc0901e855428.jpg?imwidth=2160"
+                                class="card-img-top" alt="Product 2">
+                            <div class="card-body text-center d-flex flex-column">
+                                <h5 class="card-title">Shorts</h5>
+                                <p class="card-text">₹1,499</p>
+                                <button class="btn btn-dark add-to-cart-btn mt-auto" data-product-name="Shorts"
+                                    data-product-price="1499">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <div class="card product-card h-100">
+                            <img src="https://selvamcyclemart.com/upload/shop/Kross/Kross-Multicolour-Speed-Bicycle-Showroom-Kanchipuram.png"
+                                class="card-img-top" alt="Product 3">
+                            <div class="card-body text-center d-flex flex-column">
+                                <h5 class="card-title">Cycles</h5>
+                                <p class="card-text">₹9,499</p>
+                                <button class="btn btn-dark add-to-cart-btn mt-auto" data-product-name="Cycle"
+                                    data-product-price="9499">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container my-5" id="cart-section">
+            <h2 class="text-center mb-4">Your Shopping Cart</h2>
+            <ul id="cart-items">
+                </ul>
+            <hr>
+            <div id="cart-total">Total: ₹0.00</div>
+            <div class="d-flex justify-content-between mt-3">
+                 <button id="clear-cart-btn" class="btn btn-danger">Clear Cart</button>
+                 <button id="checkout-btn" class="btn btn-success" style="display: none;">Proceed to Checkout</button>
+            </div>
+        </div>
+        
+        <footer class="bg-dark text-white pt-5 pb-4">
+             <div class="container text-md-left">
+                 <div class="row text-md-left">
+ 
+                     <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                         <h5 class="text-uppercase mb-4 font-weight-bold text-warning">One8</h5>
+                         <p>Performance meets passion. Designed for the athlete in you. Official brand by Virat Kohli.
+                         </p>
+                     </div>
+ 
+                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                         <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Quick Links</h5>
+                         <p><a href="#" class="text-white text-decoration-none">Home</a></p>
+                         <p><a href="#" class="text-white text-decoration-none">Shop</a></p>
+                         <p><a href="#" class="text-white text-decoration-none">Collections</a></p>
+                         <p><a href="#" class="text-white text-decoration-none">Contact</a></p>
+                     </div>
+ 
+                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                         <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Support</h5>
+                         <p><a href="#" class="text-white text-decoration-none">Help Center</a></p>
+                         <p><a href="#" class="text-white text-decoration-none">Returns</a></p>
+                         <p><a href="#" class="text-white text-decoration-none">Shipping</a></p>
+                         <p><a href="#" class="text-white text-decoration-none">Privacy Policy</a></p>
+                     </div>
+ 
+                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                         <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Contact</h5>
+                         <p><i class="fas fa-home me-2"></i> Mumbai, India</p>
+                         <p><i class="fas fa-envelope me-2"></i> support@one8.com</p>
+                         <p><i class="fas fa-phone me-2"></i> +91 99999 99999</p>
+                     </div>
+                 </div>
+ 
+                 <hr class="mb-4">
+                 <div class="row align-items-center">
+                     <div class="col-md-7 col-lg-8">
+                         <p class="text-white">© 2025 One8. All Rights Reserved.</p>
+                     </div>
+                     <div class="col-md-5 col-lg-4">
+                         <div class="text-center text-md-right">
+                             <a href="https://www.facebook.com/share/1BTV8GQrPJ/" class="btn btn-outline-light btn-floating m-1"><i class="fab fa-facebook"></i></a>
+                             <a href="https://www.instagram.com/virat.kohli?igsh=amtwOXNlNWoyam4w" class="btn btn-outline-light btn-floating m-1"><i class="fab fa-instagram"></i></a>
+                             <a href="https://x.com/one8world?t=miCgsRVg3ejGjFFfsvyvLg&s=08 " class="btn btn-outline-light btn-floating m-1"><i class="fab fa-twitter"></i></a>
+                             <a href="#" class="btn btn-outline-light btn-floating m-1"><i class="fab fa-youtube"></i></a>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+        </footer>
+    </div>
+
+    <div id="payment-page" class="container my-5">
+        <div class="col-md-8 col-lg-6 mx-auto">
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
+                    <h2 class="text-center mb-4">Checkout</h2>
+                    
+                    <div id="order-summary" class="mb-4 p-3 bg-light rounded">
+                        </div>
+
+                    <h4 class="mb-3">Select Payment Method</h4>
+                    <div class="d-flex flex-column gap-2">
+                        <div class="form-check">
+                            <input type="radio" id="upi" name="payment-method" value="upi" class="form-check-input" checked>
+                            <label for="upi" class="form-check-label">UPI</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="card" name="payment-method" value="card" class="form-check-input">
+                            <label for="card" class="form-check-label">Credit/Debit Card</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="cod" name="payment-method" value="cod" class="form-check-input">
+                            <label for="cod" class="form-check-label">Cash on Delivery</label>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div id="upi-details" class="payment-details active">
+                        <label for="upi-id" class="form-label">UPI ID</label>
+                        <input type="text" id="upi-id" class="form-control" placeholder="yourname@bank">
+                    </div>
+                    <div id="card-details" class="payment-details">
+                        <div class="mb-2">
+                            <label for="card-name" class="form-label">Cardholder Name</label>
+                            <input type="text" id="card-name" class="form-control" placeholder="Full Name">
+                        </div>
+                        <div class="mb-2">
+                            <label for="card-number" class="form-label">Card Number</label>
+                            <input type="text" id="card-number" class="form-control" placeholder="1111-2222-3333-4444">
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label for="card-expiry" class="form-label">Expiry</label>
+                                <input type="text" id="card-expiry" class="form-control" placeholder="MM/YY">
+                            </div>
+                            <div class="col">
+                                <label for="card-cvv" class="form-label">CVV</label>
+                                <input type="text" id="card-cvv" class="form-control" placeholder="123">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="cod-details" class="payment-details">
+                        <p class="text-muted">You can pay in cash at the time of delivery. A ₹50 handling charge may apply.</p>
+                    </div>
+
+                    <div class="d-grid gap-2 mt-4">
+                         <button id="confirm-order-btn" class="btn btn-primary btn-lg">Confirm Order</button>
+                         <button id="back-to-shop-btn" class="btn btn-secondary">Back to Shop</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            
+            const loginPage = document.getElementById('login-page');
+            const shopPage = document.getElementById('shop-page');
+            const loginForm = document.getElementById('login-form-element');
+
+            
+            let cart = [];
+            const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+            const cartCountElement = document.getElementById('cart-count');
+            const cartItemsList = document.getElementById('cart-items');
+            const cartTotalElement = document.getElementById('cart-total');
+            const clearCartButton = document.getElementById('clear-cart-btn');
+
+            
+            const checkoutBtn = document.getElementById('checkout-btn');
+            const paymentPage = document.getElementById('payment-page');
+            const backToShopBtn = document.getElementById('back-to-shop-btn');
+            const confirmOrderBtn = document.getElementById('confirm-order-btn');
+            const orderSummary = document.getElementById('order-summary');
+            const paymentOptions = document.querySelectorAll('input[name="payment-method"]');
+
+
+            
+            loginForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                loginPage.style.display = 'none';
+                shopPage.style.display = 'block';
+                window.scrollTo(0, 0);
+            });
+
+
+           
+            function renderCart() {
+                cartItemsList.innerHTML = '';
+                let total = 0;
+
+                if (cart.length === 0) {
+                    cartItemsList.innerHTML = '<li>Your cart is empty.</li>';
+                    checkoutBtn.style.display = 'none'; // Hide checkout button if cart is empty
+                } else {
+                    cart.forEach(item => {
+                        const li = document.createElement('li');
+                        li.textContent = `${item.name} - ₹${item.price.toFixed(2)}`;
+                        cartItemsList.appendChild(li);
+                        total += item.price;
+                    });
+                    checkoutBtn.style.display = 'block'; // Show checkout button
+                }
+                cartTotalElement.textContent = `Total: ₹${total.toFixed(2)}`;
+                cartCountElement.textContent = cart.length;
+            }
+
+            function addToCart(event) {
+                const productName = event.target.dataset.productName;
+                const productPrice = parseFloat(event.target.dataset.productPrice);
+                const product = { name: productName, price: productPrice };
+                cart.push(product);
+                alert(`${productName} has been added to your cart!`);
+                renderCart();
+            }
+
+            function clearCart() {
+                if (cart.length > 0 && confirm("Are you sure you want to clear the entire cart?")) {
+                    cart = [];
+                    renderCart();
+                }
+            }
+
+
+        
+            
+            function showPaymentPage() {
+                y
+                let summaryHTML = '<h5>Order Summary</h5><ul class="list-group list-group-flush">';
+                let total = 0;
+                cart.forEach(item => {
+                    summaryHTML += `<li class="list-group-item d-flex justify-content-between"><span>${item.name}</span> <span>₹${item.price.toFixed(2)}</span></li>`;
+                    total += item.price;
+                });
+                summaryHTML += `<li class="list-group-item d-flex justify-content-between"><strong>Total</strong> <strong>₹${total.toFixed(2)}</strong></li></ul>`;
+                orderSummary.innerHTML = summaryHTML;
+
+                shopPage.style.display = 'none';
+                paymentPage.style.display = 'block';
+                window.scrollTo(0, 0);
+            }
+
+            function handlePaymentSelection() {
+                const selectedValue = document.querySelector('input[name="payment-method"]:checked').value;
+                document.querySelectorAll('.payment-details').forEach(div => div.classList.remove('active'));
+                document.getElementById(`${selectedValue}-details`).classList.add('active');
+            }
+            
+            function confirmOrder() {
+                const selectedMethod = document.querySelector('input[name="payment-method"]:checked').value.toUpperCase();
+                
+                if (selectedMethod === 'UPI' && document.getElementById('upi-id').value.trim() === '') {
+                    alert('Please enter a valid UPI ID.');
+                    return;
+                }
+                if (selectedMethod === 'CARD' && document.getElementById('card-number').value.trim().length < 16) {
+                    alert('Please enter a valid Card Number.');
+                    return;
+                }
+                
+                alert(`Thank you! Your order has been successfully placed using ${selectedMethod}.`);
+               
+                cart = [];
+                renderCart();
+                paymentPage.style.display = 'none';
+                shopPage.style.display = 'block';
+            }
+
+            function goBackToShop() {
+                paymentPage.style.display = 'none';
+                shopPage.style.display = 'block';
+            }
+
+
+           -
+            addToCartButtons.forEach(button => button.addEventListener('click', addToCart));
+            clearCartButton.addEventListener('click', clearCart);
+            
+          
+            checkoutBtn.addEventListener('click', showPaymentPage);
+            paymentOptions.forEach(option => option.addEventListener('change', handlePaymentSelection));
+            confirmOrderBtn.addEventListener('click', confirmOrder);
+            backToShopBtn.addEventListener('click', goBackToShop);
+
+            
+            renderCart();
+        });
+    </script>
+
+</body>
+
+</html>
